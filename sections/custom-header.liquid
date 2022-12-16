@@ -1,0 +1,60 @@
+{%- assign menu = section.settings.menu -%}
+
+<header class="custom-header pt-[38px] pb-[42px]">
+    <div class="container">
+        <div class="header-inner">
+            <div class="header-nav__wrapper flex justify-between items-center">
+                <div class="header-logo">
+                    <a href="/" class="inline-block shrink-0 text-yellow transition duration-200 block 2xl:scale-[5.5] 2xl:translate-x-[405px] xl:scale-[4.5] xl:translate-x-[315px] lg:scale-[3] lg:translate-x-[180px] lg:translate-y-[200px] md:scale-[1.9] md:translate-x-[82px] md:translate-y-[180px] md:w-auto w-full transform-none">
+                        {{ section.settings.logo }}
+                    </a>
+                </div>
+                <nav class="header-nav flex justify-end">
+                    <ul class="flex align-middle">
+                        {%- for link in menu.links -%}
+                            <li class="uppercase">
+                                <a href="{{- link.url -}}">{{- link.title -}}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="header-icons">
+                        <ul class="flex align-middle">
+                            <li class="cursor-pointer">
+                                {% render 'icon-search' %}
+                            </li>
+                            <li class="cursor-pointer">
+                                {% render 'icon-cart' %}
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="header-text max-w-[330px] flex justify-end py-[120px] ml-auto">
+                {{- section.settings.text -}}
+            </div>
+        </div>
+    </div>
+</header>
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "menu",
+        "label": "Choose menu"
+      },
+      {
+        "type": "html",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Header text"
+      }
+    ]
+  }
+{% endschema %}

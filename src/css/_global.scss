@@ -1,0 +1,28 @@
+body {
+  background-color: $brand-primary;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 42px;
+}
+
+#shopify-section-custom-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+
+@media (max-width: 1920px) {
+  .container {
+    max-width: 1440px;
+  }
+}

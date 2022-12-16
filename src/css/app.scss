@@ -1,0 +1,16 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+/* purgecss end ignore */
+@tailwind utilities;
+
+//Global
+@import "variables";
+@import "global";
+
+//Components
+@import "components/announcement-bar";
+@import "components/header";
+
+//Fonts
+@import "_fonts";

@@ -1,0 +1,27 @@
+<div class="custom-announcement-bar border-b-2 border-black" role="region" {{ block.shopify_attributes }}>
+    <div class="container">
+        <div class="custom-announcement-bar__inner flex justify-between py-[12px] text-[16px]">
+            {%- if section.settings.text != blank -%}
+                <p>{{- section.settings.text -}}</p>
+            {%- endif -%}
+            <div>
+                {%- for link in linklists.anouncement-menu.links -%}
+                    <a href="{{- link.url -}}" class="mr-[40px] last:mr-0">{{- link.title -}}</a>
+                {%- endfor -%}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    {
+      "id": "text",
+      "type": "text",
+      "label": "Announcement text"
+    }
+  ]
+}
+{% endschema %}
