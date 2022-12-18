@@ -11,6 +11,11 @@
 .header-inner {
 
   &.scrolled {
+    .header-nav__wrapper {
+      flex-direction: row;
+      align-items: center;
+    }
+
     .header-logo {
       a {
         transform: scale(1) translate(0, 0);
@@ -31,10 +36,20 @@
   }
 }
 
+
+
 .header-nav {
   font-family: $font-platform;
 }
 
 .header-text {
   font-family: $font-gt-super-text-book;
+}
+
+.header-nav-mobile {
+
+}
+
+.products-shop-all_link {
+  font-family: $font-platform;
 }

@@ -1,8 +1,13 @@
-<section class="products">
+{%- assign section_title = section.settings.title -%}
+
+<section class="products mb-[80px]">
   <div class="container">
+    {% if section_title != blank %}
+      <h1 class="content-section__title text-center lg:text-[80px] text-[40px] mb-[80px] mt-[60px]">{{ section_title }}</h1>
+    {% endif %}
       <div class="relative lg:px-[50px] px-0">
         <span class="md:hidden block absolute top-0 left-0 h-full w-[50px] z-10 rotate-180" style="background: linear-gradient(270deg, #F4EDE5 0%, rgba(244, 237, 229, 0) 100%);"></span>
-        <div class="swiper-button-prev after:content-[''] w-[31px] absolute top-[50%] translate-y-[-50%] left-0">
+        <div class="swiper-button-prev product-slider-arrow_prev after:content-[''] w-[31px] absolute top-[50%] translate-y-[-50%] left-0">
           {% render 'icon-arrow-left' %}
         </div>
         <div class="products-slider swiper">
@@ -16,9 +21,12 @@
               {% include 'product-card' id title price image %}
             {% endfor %}
           </div>
+          <div class="products-shop-all_link text-center pt-[47px] uppercase">
+            <a href="#" class="underline underline-offset-4 text-black font-medium">Shop all</a>
+          </div>
         </div>
         <span class="md:hidden block absolute top-0 right-0 h-full w-[50px] z-10" style="background: linear-gradient(270deg, #F4EDE5 0%, rgba(244, 237, 229, 0) 100%);"></span>
-        <div class="swiper-button-next after:content-[''] w-[31px] absolute top-[50%] translate-y-[-50%] right-0">
+        <div class="swiper-button-next product-slider-arrow_next after:content-[''] w-[31px] absolute top-[50%] translate-y-[-50%] right-0">
           {% render 'icon-arrow-right' %}
         </div>
       </div>
@@ -29,7 +37,11 @@
   {
     "name": "Product cards",
     "settings": [
-
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      }
     ],
     "blocks": [
       {

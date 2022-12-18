@@ -4,8 +4,8 @@ Swiper.use([Navigation]);
 
 const selectors = {
     container: ".products-slider",
-    next_arrow: ".swiper-button-next",
-    prev_arrow: ".swiper-button-prev"
+    next_arrow: ".product-slider-arrow_prev",
+    prev_arrow: ".product-slider-arrow_next"
 }
 
 
@@ -41,8 +41,8 @@ const featuredProductsSlider = new Swiper(selectors.container, {
 })
 
 function checkArrow() {
-    const swiperPrev = document.querySelector('.swiper-button-prev');
-    const swiperNext = document.querySelector('.swiper-button-next');
+    const swiperPrev = document.querySelector(selectors.prev_arrow);
+    const swiperNext = document.querySelector(selectors.next_arrow);
     if ( window.innerWidth > 768  ) {
         swiperPrev.style.display = 'block';
         swiperNext.style.display = 'block';

@@ -2,7 +2,7 @@
 {% assign text = section.settings.text %}
 
 {%- if menu or text != blank -%}
-    <div class="custom-announcement-bar border-b-2 border-black" role="region">
+    <section class="custom-announcement-bar border-b-2 border-black md:block hidden" role="region">
         <div class="container">
             <div class="custom-announcement-bar__inner flex justify-between py-[12px] text-[16px]">
                 {%- if text != blank -%}
@@ -17,7 +17,7 @@
                 {%- endif -%}
             </div>
         </div>
-    </div>
+    </section>
 {% endif %}
 
 {% schema %}

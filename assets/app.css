@@ -587,6 +587,9 @@ select{
   }
 }
 /* purgecss end ignore */
+.fixed{
+  position: fixed;
+}
 .absolute{
   position: absolute;
 }
@@ -608,6 +611,9 @@ select{
 .right-\[20px\]{
   right: 20px;
 }
+.left-\[-100\%\]{
+  left: -100%;
+}
 .left-0{
   left: 0px;
 }
@@ -616,6 +622,12 @@ select{
 }
 .left-\[50\%\]{
   left: 50%;
+}
+.top-\[30px\]{
+  top: 30px;
+}
+.right-\[30px\]{
+  right: 30px;
 }
 .isolate{
   isolation: isolate;
@@ -629,6 +641,12 @@ select{
 }
 .mb-\[77px\]{
   margin-bottom: 77px;
+}
+.mb-\[80px\]{
+  margin-bottom: 80px;
+}
+.mt-\[60px\]{
+  margin-top: 60px;
 }
 .mr-\[40px\]{
   margin-right: 40px;
@@ -666,6 +684,9 @@ select{
 .h-\[30px\]{
   height: 30px;
 }
+.h-screen{
+  height: 100vh;
+}
 .min-h-\[420px\]{
   min-height: 420px;
 }
@@ -681,11 +702,11 @@ select{
 .w-\[31px\]{
   width: 31px;
 }
-.w-auto{
-  width: auto;
-}
 .w-\[278px\]{
   width: 278px;
+}
+.w-\[20px\]{
+  width: 20px;
 }
 .max-w-\[329px\]{
   max-width: 329px;
@@ -711,14 +732,14 @@ select{
 .transform{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-.transform-none{
-  transform: none;
-}
 .cursor-pointer{
   cursor: pointer;
 }
 .grid-cols-1{
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.flex-col-reverse{
+  flex-direction: column-reverse;
 }
 .flex-wrap{
   flex-wrap: wrap;
@@ -754,6 +775,10 @@ select{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+.bg-\[\#BF91C4\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(191 145 196 / var(--tw-bg-opacity));
+}
 .bg-cover{
   background-size: cover;
 }
@@ -777,40 +802,40 @@ select{
 .p-\[20px\]{
   padding: 20px;
 }
+.p-\[30px\]{
+  padding: 30px;
+}
 .py-\[12px\]{
   padding-top: 12px;
   padding-bottom: 12px;
+}
+.py-6{
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 .py-\[60px\]{
   padding-top: 60px;
   padding-bottom: 60px;
 }
-.px-\[50px\]{
-  padding-left: 50px;
-  padding-right: 50px;
+.px-0{
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .px-\[25px\]{
   padding-left: 25px;
   padding-right: 25px;
 }
-.px-0{
-  padding-left: 0px;
-  padding-right: 0px;
-}
-.pb-\[80px\]{
-  padding-bottom: 80px;
-}
-.pt-\[60px\]{
-  padding-top: 60px;
-}
-.pt-\[38px\]{
-  padding-top: 38px;
+.pt-\[24px\]{
+  padding-top: 24px;
 }
 .pb-\[42px\]{
   padding-bottom: 42px;
 }
-.pt-\[800px\]{
-  padding-top: 800px;
+.pt-\[667px\]{
+  padding-top: 667px;
+}
+.pt-\[47px\]{
+  padding-top: 47px;
 }
 .pt-\[224px\]{
   padding-top: 224px;
@@ -824,11 +849,14 @@ select{
 .pb-\[30px\]{
   padding-bottom: 30px;
 }
-.pt-\[313px\]{
-  padding-top: 313px;
-}
 .pt-\[208px\]{
   padding-top: 208px;
+}
+.pt-\[100px\]{
+  padding-top: 100px;
+}
+.pt-\[50px\]{
+  padding-top: 50px;
 }
 .text-center{
   text-align: center;
@@ -859,6 +887,9 @@ select{
 }
 .font-medium{
   font-weight: 500;
+}
+.font-bold{
+  font-weight: 700;
 }
 .uppercase{
   text-transform: uppercase;
@@ -968,6 +999,10 @@ svg {
   background-color: #F4EDE5;
 }
 
+.header-inner.scrolled .header-nav__wrapper {
+  flex-direction: row;
+  align-items: center;
+}
 .header-inner.scrolled .header-logo a {
   transform: scale(1) translate(0, 0);
 }
@@ -986,6 +1021,10 @@ svg {
 
 .header-text {
   font-family: "GT Super Text Book", sans-serif;
+}
+
+.products-shop-all_link {
+  font-family: "Platform", sans-serif;
 }
 
 .content-section__title {
@@ -1084,15 +1123,10 @@ svg {
 .last\:mr-0:last-child{
   margin-right: 0px;
 }
-@media (min-width: 640px){
-  .sm\:w-\[278px\]{
-    width: 278px;
-  }
-  .sm\:max-w-\[278px\]{
-    max-width: 278px;
-  }
-}
 @media (min-width: 768px){
+  .md\:block{
+    display: block;
+  }
   .md\:flex{
     display: flex;
   }
@@ -1104,6 +1138,9 @@ svg {
   }
   .md\:w-auto{
     width: auto;
+  }
+  .md\:w-\[350px\]{
+    width: 350px;
   }
   .md\:max-w-\[100\%\]{
     max-width: 100%;
@@ -1120,6 +1157,12 @@ svg {
     --tw-scale-x: 1.9;
     --tw-scale-y: 1.9;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+  .md\:flex-row{
+    flex-direction: row;
+  }
+  .md\:items-center{
+    align-items: center;
   }
   .md\:pt-\[313px\]{
     padding-top: 313px;
@@ -1155,6 +1198,9 @@ svg {
   .lg\:px-\[50px\]{
     padding-left: 50px;
     padding-right: 50px;
+  }
+  .lg\:pt-\[800px\]{
+    padding-top: 800px;
   }
   .lg\:text-\[80px\]{
     font-size: 80px;

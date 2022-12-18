@@ -80,8 +80,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_0__.Navigation]);
 var selectors = {
   container: ".products-slider",
-  next_arrow: ".swiper-button-next",
-  prev_arrow: ".swiper-button-prev"
+  next_arrow: ".product-slider-arrow_prev",
+  prev_arrow: ".product-slider-arrow_next"
 };
 var featuredProductsSlider = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](selectors.container, {
   spaceBetween: 2,
@@ -114,8 +114,8 @@ var featuredProductsSlider = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](
   }
 });
 function checkArrow() {
-  var swiperPrev = document.querySelector('.swiper-button-prev');
-  var swiperNext = document.querySelector('.swiper-button-next');
+  var swiperPrev = document.querySelector(selectors.prev_arrow);
+  var swiperNext = document.querySelector(selectors.next_arrow);
   if (window.innerWidth > 768) {
     swiperPrev.style.display = 'block';
     swiperNext.style.display = 'block';
@@ -205,6 +205,9 @@ products.forEach(function (product) {
 var logo = document.querySelector('.header-logo a');
 var body = document.querySelector('body');
 var headerInner = document.querySelector('.header-inner');
+var headerMenuButton = document.querySelector('.header__mobile-menu-icon');
+var mobileNavBar = document.querySelector('.header-nav-mobile');
+var mobileNavBarCloseIcon = document.querySelector('.header-nav-mobile__close');
 window.addEventListener('scroll', function () {
   if (window.scrollY > 0) {
     body.classList.add('cream');
@@ -213,6 +216,14 @@ window.addEventListener('scroll', function () {
     body.classList.remove('cream');
     headerInner.classList.remove('scrolled');
   }
+});
+headerMenuButton.addEventListener('click', function () {
+  mobileNavBar.classList.remove('left-[-100%]');
+  mobileNavBar.classList.add('left-0');
+});
+mobileNavBarCloseIcon.addEventListener('click', function () {
+  mobileNavBar.classList.add('left-[-100%]');
+  mobileNavBar.classList.remove('left-0');
 });
 
 /***/ }),
