@@ -344,9 +344,9 @@ body,
   list-style: none;
 }
 
-.hidden {
+/*.hidden {
   display: none !important;
-}
+}*/
 
 .visually-hidden {
   position: absolute !important;
@@ -615,7 +615,6 @@ table:not([class]) th {
 a:empty,
 ul:empty,
 dl:empty,
-div:empty,
 section:empty,
 article:empty,
 p:empty,

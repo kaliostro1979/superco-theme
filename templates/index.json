@@ -2,9 +2,17 @@
   "sections": {
     "banner": {
       "type": "hero-banner"
+    },
+    "content_cards": {
+      "type": "content-cards-section"
+    },
+    "product_cards": {
+      "type": "product-cards-section"
     }
   },
   "order": [
-    "banner"
+    "banner",
+    "content_cards",
+    "product_cards"
   ]
 }

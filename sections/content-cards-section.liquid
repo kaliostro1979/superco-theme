@@ -1,0 +1,112 @@
+{%- assign grid_size = section.settings.grid_size -%}
+{%- assign section_title = section.settings.title -%}
+
+<div class="mb-[77px]">
+  <div class="container">
+
+    {% if section_title != blank %}
+      <h1 class="content-section__title text-center lg:text-[80px] text-[40px] pb-[80px] pt-[60px]">{{ section_title }}</h1>
+    {% endif %}
+    <div>
+      <div class="{%- if grid_size == "4" -%} content-slider swiper {% else %} content-wrapper {%- endif -%}">
+        <div class="{%- if grid_size == "4" -%} swiper-wrapper {% else %} grid lg:grid-cols-2 grid grid-cols-1 lg:gap-[10px] gap-[20px] {% endif %}">
+
+          {%- for block in section.blocks -%}
+            {%- assign image = block.settings.image -%}
+            {%- assign title = block.settings.title -%}
+            {%- assign text = block.settings.text -%}
+            {%- assign url = block.settings.url -%}
+            {%- assign link = block.settings.link -%}
+            {%- assign color = block.settings.color -%}
+
+            {%- include 'content-card', image title text link url color grid_size -%}
+          {%- endfor -%}
+        </div>
+
+        {%- if grid_size == "4" -%}
+          <span class="md:hidden block absolute top-0 right-0 h-full w-[50px] z-10" style="background: linear-gradient(270deg, #F4EDE5 0%, rgba(244, 237, 229, 0) 100%);"></span>
+          <div class="swiper-button-prev custom-arrow bg-white after:content-[''] w-[30px] h-[30px] rounded-[50%] absolute top-[50%] translate-y-[-50%] left-[20px]">
+            {% render 'icon-arrow-left' %}
+          </div>
+          <div class="swiper-button-next custom-arrow bg-white after:content-[''] w-[30px] h-[30px] rounded-[50%] absolute top-[50%] translate-y-[-50%] right-[20px]">
+            {% render 'icon-arrow-right' %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Content cards",
+    "max_blocks": 4,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "select",
+        "id": "grid_size",
+        "label": "Grid size",
+        "options": [
+          {
+            "label": "2",
+            "value": "2"
+          },
+          {
+            "label": "4",
+            "value": "4"
+          }
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "type": "card",
+        "name":"Content card",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "type": "text",
+            "id": "link",
+            "label": "Link"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "URL"
+          },
+          {
+            "type": "color",
+            "id": "color",
+            "label": "Color"
+          }
+        ]
+      }
+    ],
+    "presets":[
+      {
+        "name": "Content cards"
+      }
+    ]
+  }
+{% endschema %}

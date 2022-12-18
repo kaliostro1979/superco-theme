@@ -1,0 +1,24 @@
+.content-section__title {
+  font-family: $font-gt-super-display-light;
+}
+
+.content-card__title {
+  font-family: $font-gt-super-display-light;
+}
+
+.content-card__text {
+  font-family: $font-gt-super-text-book;
+}
+
+.content-card__link {
+  font-family: $font-platform;
+  font-weight: 500;
+}
+
+.custom-arrow {
+  color: $color-black;
+
+  svg {
+    width: 11px;
+  }
+}

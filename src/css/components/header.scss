@@ -1,3 +1,40 @@
 .custom-header {
   background-color: $brand-primary;
 }
+
+.cream {
+  .custom-header {
+    background-color: $brand-secondary;
+  }
+}
+
+.header-inner {
+
+  &.scrolled {
+    .header-logo {
+      a {
+        transform: scale(1) translate(0, 0);
+
+        svg {
+          path {
+            fill: $color-black;
+          }
+        }
+      }
+    }
+
+    .header-text {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0;
+    }
+  }
+}
+
+.header-nav {
+  font-family: $font-platform;
+}
+
+.header-text {
+  font-family: $font-gt-super-text-book;
+}

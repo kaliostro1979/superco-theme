@@ -1,5 +1,10 @@
 body {
   background-color: $brand-primary;
+  min-height: 200vh;
+
+  &.cream {
+    background-color: $brand-secondary;
+  }
 }
 
 svg {
@@ -18,6 +23,23 @@ svg {
   position: sticky;
   top: 0;
   z-index: 10;
+}
+
+.swiper {
+  height: 100%;
+}
+
+.swiper-slide {
+  height: auto !important;
+}
+.swiper-content {
+  height: 100% !important
+}
+
+@media (max-width: 991px) {
+  .container {
+    padding: 0 20px;
+  }
 }
 
 

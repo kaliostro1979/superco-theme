@@ -1,0 +1,48 @@
+<section class="products">
+  <div class="container">
+      <div class="relative lg:px-[50px] px-0">
+        <span class="md:hidden block absolute top-0 left-0 h-full w-[50px] z-10 rotate-180" style="background: linear-gradient(270deg, #F4EDE5 0%, rgba(244, 237, 229, 0) 100%);"></span>
+        <div class="swiper-button-prev after:content-[''] w-[31px] absolute top-[50%] translate-y-[-50%] left-0">
+          {% render 'icon-arrow-left' %}
+        </div>
+        <div class="products-slider swiper">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {% assign id = block.settings.product.variants[0].id %}
+              {% assign title = block.settings.product.title %}
+              {% assign price = block.settings.product.price | money %}
+              {% assign image = block.settings.product.featured_image %}
+
+              {% include 'product-card' id title price image %}
+            {% endfor %}
+          </div>
+        </div>
+        <span class="md:hidden block absolute top-0 right-0 h-full w-[50px] z-10" style="background: linear-gradient(270deg, #F4EDE5 0%, rgba(244, 237, 229, 0) 100%);"></span>
+        <div class="swiper-button-next after:content-[''] w-[31px] absolute top-[50%] translate-y-[-50%] right-0">
+          {% render 'icon-arrow-right' %}
+        </div>
+      </div>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Product cards",
+    "settings": [
+
+    ],
+    "blocks": [
+      {
+        "name": "Products",
+        "type": "products",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

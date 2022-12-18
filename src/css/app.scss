@@ -11,6 +11,11 @@
 //Components
 @import "components/announcement-bar";
 @import "components/header";
+@import "components/content-card";
+@import "components/featured-products";
 
 //Fonts
 @import "_fonts";
+
+//Swiper
+@import "~swiper/swiper-bundle.min.css";

@@ -1,0 +1,22 @@
+<div class="product-card__wrapper swiper-slide cursor-pointer lg:w-auto w-[278px]"  data-id="{{ id }}">
+    <div class="product-card__image relative md:pt-[313px] pt-[208px]">
+        <picture>
+            <source srcset="{{ image | img_url: '767x' }} 1x, {{ image | img_url: '1534x' }} 2x" media="(max-width: 767px)">
+            <source srcset="{{ image | img_url: '991x' }} 1x, {{ image | img_url: '1982x' }} 2x" media="(max-width: 991px)">
+            <source srcset="{{ image | img_url: '1199x' }} 1x, {{ image | img_url: '2398x' }} 2x" media="(max-width: 1199px)">
+            <source srcset="{{ image | img_url: '1440x' }} 1x, {{ image | img_url: '2880x' }} 2x" media="(max-width: 1440px)">
+            <source srcset="{{ image | img_url: '1920x' }} 1x, {{ image | img_url: '3840x' }} 2x" media="(max-width: 1920px)">
+
+            <img
+                    srcset="{{ image | img_url: '1920x' }} 1x, {{ image | img_url: '3840x' }} 2x"
+                    src="{{ image | img_url: '1920x' }}"
+                    class="absolute top-0 left-0 object-cover object-center w-full h-full"
+                    alt="{{ image.alt | default: title }}"
+            >
+        </picture>
+    </div>
+    <div class="product-card__meta bg-white p-[20px] md:flex justify-between items-center block">
+        <p class="product-card__title text-[24px] text-black">{{ title }}</p>
+        <p class="product-card__price text-[14px] ">{{ price }}</p>
+    </div>
+</div>

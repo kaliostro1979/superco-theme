@@ -1,5 +1,4 @@
-const logo = document.querySelector('.header-logo a')
-
-/*window.addEventListener('scroll', function (){
-    logo.setAttribute('data-scaled', "false")
-})*/
+import './content-slider'
+import './featured-products'
+import './header'
+import './slider'

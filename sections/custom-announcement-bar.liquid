@@ -1,26 +1,38 @@
-<div class="custom-announcement-bar border-b-2 border-black" role="region" {{ block.shopify_attributes }}>
-    <div class="container">
-        <div class="custom-announcement-bar__inner flex justify-between py-[12px] text-[16px]">
-            {%- if section.settings.text != blank -%}
-                <p>{{- section.settings.text -}}</p>
-            {%- endif -%}
-            <div>
-                {%- for link in linklists.anouncement-menu.links -%}
-                    <a href="{{- link.url -}}" class="mr-[40px] last:mr-0">{{- link.title -}}</a>
-                {%- endfor -%}
+{% assign menu = section.settings.menu %}
+{% assign text = section.settings.text %}
+
+{%- if menu or text != blank -%}
+    <div class="custom-announcement-bar border-b-2 border-black" role="region">
+        <div class="container">
+            <div class="custom-announcement-bar__inner flex justify-between py-[12px] text-[16px]">
+                {%- if text != blank -%}
+                    <p>{{- section.settings.text -}}</p>
+                {%- endif -%}
+                {%- if menu != blank -%}
+                    <div>
+                        {%- for link in menu.links -%}
+                            <a href="{{- link.url -}}" class="mr-[40px] last:mr-0 capitalize">{{- link.title -}}</a>
+                        {%- endfor -%}
+                    </div>
+                {%- endif -%}
             </div>
         </div>
     </div>
-</div>
+{% endif %}
 
 {% schema %}
 {
   "name": "Announcement bar",
   "settings": [
     {
-      "id": "text",
       "type": "text",
+      "id": "text",
       "label": "Announcement text"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Choose menu"
     }
   ]
 }
