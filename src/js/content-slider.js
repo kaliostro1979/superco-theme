@@ -1,5 +1,5 @@
-import Swiper, { Navigation } from "swiper";
-Swiper.use([Navigation]);
+import {initSlider} from "./slider";
+
 
 const selectors = {
     container: ".content-slider",
@@ -7,8 +7,7 @@ const selectors = {
     prev_arrow: ".swiper-button-prev"
 }
 
-
-const contentSlider = new Swiper(selectors.container, {
+const options = {
     spaceBetween: 10,
     autoHeight: false,
     navigation: {
@@ -29,4 +28,6 @@ const contentSlider = new Swiper(selectors.container, {
             slidesPerView: 4
         }
     }
-})
+}
+
+initSlider(selectors.container, options)

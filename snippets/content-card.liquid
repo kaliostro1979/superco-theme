@@ -1,4 +1,4 @@
-{% if grid_size == "4" %}
+{%- if grid_size == "4" -%}
     <div style="background-color: {{ color }}" class="p-[10px] swiper-slide md:max-w-[100%] max-w-[264px]">
         <div class="relative pt-[224px] w-full">
             <picture>
@@ -23,11 +23,11 @@
             <a href="{{- url -}}" class="content-card__link uppercase underline underline-offset-4">{{- link -}}</a>
         </div>
     </div>
-{% else %}
+{%- else -%}
     <div class="md:min-h-[800px] min-h-[420px] bg-cover bg-no-repeat bg-center relative" style="background-image: url('{{ image | image_url }}')">
         <div class="absolute bottom-0 left-[50%] translate-x-[-50%] text-center px-[25px] pb-[30px] xl:w-[614px] w-full">
-            <p class="content-card__title w-full lg:text-[64px] text-[32px] text-white">{{ title }}</p>
-            <a href="{{ url }}" class="content-card__link w-full text-white lg:text-[16px] text-[12px] uppercase underline underline-offset-4">{{ link }}</a>
+            <p class="content-card__title w-full lg:text-[64px] text-[32px] text-white">{{- title -}}</p>
+            <a href="{{- url -}}" class="content-card__link w-full text-white lg:text-[16px] text-[12px] uppercase underline underline-offset-4">{{- link -}}</a>
         </div>
     </div>
-{% endif %}
+{%- endif -%}

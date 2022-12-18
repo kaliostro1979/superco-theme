@@ -1,25 +1,27 @@
 {% assign image = section.settings.image %}
 
-<div class="hero-banner">
-    <div class="container">
-        <div class="hero-banner__image-wrapper relative w-100 lg:pt-[800px] pt-[667px]">
-            <picture>
-                <source srcset="{{ image | img_url: '767x' }} 1x, {{ image | img_url: '1534x' }} 2x" media="(max-width: 767px)">
-                <source srcset="{{ image | img_url: '991x' }} 1x, {{ image | img_url: '1982x' }} 2x" media="(max-width: 991px)">
-                <source srcset="{{ image | img_url: '1199x' }} 1x, {{ image | img_url: '2398x' }} 2x" media="(max-width: 1199px)">
-                <source srcset="{{ image | img_url: '1440x' }} 1x, {{ image | img_url: '2880x' }} 2x" media="(max-width: 1440px)">
-                <source srcset="{{ image | img_url: '1920x' }} 1x, {{ image | img_url: '3840x' }} 2x" media="(max-width: 1920px)">
+{%- if image != blank -%}
+    <div class="hero-banner">
+        <div class="container">
+            <div class="hero-banner__image-wrapper relative w-100 lg:pt-[800px] pt-[667px]">
+                <picture>
+                    <source srcset="{{ image | img_url: '767x' }} 1x, {{ image | img_url: '1534x' }} 2x" media="(max-width: 767px)">
+                    <source srcset="{{ image | img_url: '991x' }} 1x, {{ image | img_url: '1982x' }} 2x" media="(max-width: 991px)">
+                    <source srcset="{{ image | img_url: '1199x' }} 1x, {{ image | img_url: '2398x' }} 2x" media="(max-width: 1199px)">
+                    <source srcset="{{ image | img_url: '1440x' }} 1x, {{ image | img_url: '2880x' }} 2x" media="(max-width: 1440px)">
+                    <source srcset="{{ image | img_url: '1920x' }} 1x, {{ image | img_url: '3840x' }} 2x" media="(max-width: 1920px)">
 
-                <img
-                        srcset="{{ image | img_url: '1920x' }} 1x, {{ image | img_url: '3840x' }} 2x"
-                        src="{{ image | img_url: '1920x' }}"
-                        class="banner__image absolute top-0 left-0 w-full h-full object-cover object-center"
-                        alt="{{ image.alt | default: title }}"
-                >
-            </picture>
+                    <img
+                            srcset="{{ image | img_url: '1920x' }} 1x, {{ image | img_url: '3840x' }} 2x"
+                            src="{{ image | img_url: '1920x' }}"
+                            class="banner__image absolute top-0 left-0 w-full h-full object-cover object-center"
+                            alt="{{ image.alt | default: title }}"
+                    >
+                </picture>
+            </div>
         </div>
     </div>
-</div>
+{%- endif -%}
 
 {% schema %}
   {

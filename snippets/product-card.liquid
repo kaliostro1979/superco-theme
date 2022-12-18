@@ -16,7 +16,12 @@
         </picture>
     </div>
     <div class="product-card__meta bg-white p-[20px] md:flex justify-between items-center block">
-        <p class="product-card__title text-[24px] text-black">{{ title }}</p>
-        <p class="product-card__price text-[14px] ">{{ price }}</p>
+        {%- if title != blank -%}
+            <p class="product-card__title text-[24px] text-black">{{- title -}}</p>
+        {%- endif -%}
+
+        {%- if price -%}
+            <p class="product-card__price text-[14px] ">{{- price -}}</p>
+        {%- endif -%}
     </div>
 </div>

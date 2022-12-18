@@ -1,6 +1,5 @@
-import Swiper, {Navigation} from "swiper";
+import {initSlider} from "./slider";
 
-Swiper.use([Navigation]);
 
 const selectors = {
     container: ".products-slider",
@@ -8,8 +7,7 @@ const selectors = {
     prev_arrow: ".product-slider-arrow_next"
 }
 
-
-const featuredProductsSlider = new Swiper(selectors.container, {
+const options = {
     spaceBetween: 2,
     autoHeight: false,
     navigation: {
@@ -38,7 +36,9 @@ const featuredProductsSlider = new Swiper(selectors.container, {
             checkArrow();
         }
     }
-})
+}
+
+initSlider(selectors.container, options)
 
 function checkArrow() {
     const swiperPrev = document.querySelector(selectors.prev_arrow);

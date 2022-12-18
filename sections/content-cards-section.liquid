@@ -5,11 +5,11 @@
   <div class="container">
 
     {% if section_title != blank %}
-      <h1 class="content-section__title text-center lg:text-[80px] text-[40px] mb-[80px] mt-[60px]">{{ section_title }}</h1>
+      <h1 class="content-section__title text-center lg:text-[80px] text-[40px] mb-[80px] mt-[60px]">{{- section_title -}}</h1>
     {% endif %}
     <div>
-      <div class="{%- if grid_size == "4" -%} content-slider swiper {% else %} content-wrapper {%- endif -%}">
-        <div class="{%- if grid_size == "4" -%} swiper-wrapper {% else %} grid lg:grid-cols-2 grid grid-cols-1 lg:gap-[10px] gap-[20px] {% endif %}">
+      <div class="{%- if grid_size == "4" -%} content-slider swiper {%- else -%} content-wrapper {%- endif -%}">
+        <div class="{%- if grid_size == "4" -%} swiper-wrapper {%- else -%} grid lg:grid-cols-2 grid grid-cols-1 lg:gap-[10px] gap-[20px] {%- endif -%}">
 
           {%- for block in section.blocks -%}
             {%- assign image = block.settings.image -%}
@@ -31,7 +31,7 @@
           <div class="swiper-button-next custom-arrow bg-white after:content-[''] w-[30px] h-[30px] rounded-[50%] absolute top-[50%] translate-y-[-50%] right-[20px]">
             {% render 'icon-arrow-right' %}
           </div>
-        {% endif %}
+        {%- endif -%}
       </div>
     </div>
   </div>

@@ -6,22 +6,28 @@ const mobileNavBar = document.querySelector('.header-nav-mobile')
 const mobileNavBarCloseIcon = document.querySelector('.header-nav-mobile__close')
 
 
-window.addEventListener('scroll', function (){
-    if (window.scrollY > 0){
+window.addEventListener('scroll', function () {
+    if (window.scrollY > 0) {
         body.classList.add('cream')
         headerInner.classList.add('scrolled')
-    }else {
+    } else {
         body.classList.remove('cream')
         headerInner.classList.remove('scrolled')
     }
 })
 
-headerMenuButton.addEventListener('click', function (){
-    mobileNavBar.classList.remove('left-[-100%]')
-    mobileNavBar.classList.add('left-0')
-})
+if (headerMenuButton) {
+    headerMenuButton.addEventListener('click', function () {
+        if (!mobileNavBar) return
 
-mobileNavBarCloseIcon.addEventListener('click', function (){
-    mobileNavBar.classList.add('left-[-100%]')
-    mobileNavBar.classList.remove('left-0')
-})
+        mobileNavBar.classList.remove('left-[-100%]')
+        mobileNavBar.classList.add('left-0')
+    })
+}
+
+if (mobileNavBarCloseIcon) {
+    mobileNavBarCloseIcon.addEventListener('click', function () {
+        mobileNavBar.classList.add('left-[-100%]')
+        mobileNavBar.classList.remove('left-0')
+    })
+}

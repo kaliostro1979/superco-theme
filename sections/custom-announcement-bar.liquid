@@ -5,9 +5,11 @@
     <section class="custom-announcement-bar border-b-2 border-black md:block hidden" role="region">
         <div class="container">
             <div class="custom-announcement-bar__inner flex justify-between py-[12px] text-[16px]">
+
                 {%- if text != blank -%}
                     <p>{{- section.settings.text -}}</p>
                 {%- endif -%}
+
                 {%- if menu != blank -%}
                     <div>
                         {%- for link in menu.links -%}

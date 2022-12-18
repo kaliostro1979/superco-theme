@@ -1,11 +1,15 @@
 {%- assign menu = section.settings.menu -%}
+{%- assign logo = section.settings.logo -%}
+{%- assign text = section.settings.text -%}
 
 <header class="custom-header pt-[24px] pb-[42px]">
     <div class="container">
         <div class="header-inner">
             <div class="header-nav__wrapper flex md:flex-row flex-col-reverse justify-between md:items-center">
-                <div class="header-logo">
-                    <a href="/" class="
+
+                {%- if logo != blank -%}
+                    <div class="header-logo">
+                        <a href="/" class="
                     inline-block
                     shrink-0
                     transition
@@ -24,74 +28,89 @@
                     md:w-auto
                     w-full
                 ">
-                        {{ section.settings.logo }}
-                    </a>
-                </div>
-                <nav class="header-nav flex justify-end py-6">
-                    <ul class="md:flex hidden align-middle mr-[35px]">
-                        {%- for link in menu.links -%}
-                            <li class="uppercase mr-[35px] last:mr-0">
-                                <a href="{{- link.url -}}" class="text-[14px] font-medium">{{- link.title -}}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                    <div class="header-icons">
-                        <ul class="flex align-middle">
-                            <li class="cursor-pointer mr-[25px]">
-                                {% render 'icon-search' %}
-                            </li>
-                            <li class="cursor-pointer mr-[25px]">
-                                {% render 'icon-cart' %}
-                            </li>
-                            <li class="cursor-pointer header__mobile-menu-icon md:hidden block">
-                                {% render 'icon-burger' %}
-                            </li>
-                        </ul>
+                            {{ logo }}
+                        </a>
                     </div>
-                </nav>
-                <div class="header-nav-mobile block md:hidden h-screen md:w-[350px] w-full fixed top-0 left-[-100%] bg-[#BF91C4] duration-200 ease-linear">
-                    <div class="w-full p-[30px] relative">
-                        <div class="header-nav-mobile__close absolute top-[30px] right-[30px] w-[20px]">
-                            {% render 'icon-close' %}
-                        </div>
-                        <div class="pt-[50px]">
-                            <ul>
+                {%- endif -%}
+
+
+                    <nav class="header-nav flex justify-end py-6">
+
+                        {%- if menu != blank -%}
+                            <ul class="md:flex hidden align-middle mr-[35px]">
                                 {%- for link in menu.links -%}
-                                    <li class="uppercase">
-                                        <a href="{{- link.url -}}" class="text-[24px] font-bold">{{- link.title -}}</a>
+                                    <li class="uppercase mr-[35px] last:mr-0">
+                                        <a href="{{- link.url -}}" class="text-[14px] font-medium">{{- link.title -}}</a>
                                     </li>
-                                {% endfor %}
+                                {%- endfor -%}
+                            </ul>
+                        {%- endif -%}
+                        <div class="header-icons">
+                            <ul class="flex align-middle">
+                                <li class="cursor-pointer mr-[25px]">
+                                    {% render 'icon-search' %}
+                                </li>
+                                <li class="cursor-pointer mr-[25px]">
+                                    {% render 'icon-cart' %}
+                                </li>
+
+                                {%- if menu != blank -%}
+                                    <li class="cursor-pointer header__mobile-menu-icon md:hidden block">
+                                        {% render 'icon-burger' %}
+                                    </li>
+                                {%- endif -%}
                             </ul>
                         </div>
+                    </nav>
+                {%- if menu != blank -%}
+                    <div class="header-nav-mobile block md:hidden h-screen md:w-[350px] w-full fixed top-0 left-[-100%] bg-[#BF91C4] duration-200 ease-linear">
+                        <div class="w-full p-[30px] relative">
+                            <div class="header-nav-mobile__close absolute top-[30px] right-[30px] w-[20px]">
+                                {% render 'icon-close' %}
+                            </div>
+                            <div class="pt-[50px]">
+                                    <ul>
+                                        {%- for link in menu.links -%}
+                                            <li class="uppercase">
+                                                <a href="{{- link.url -}}"
+                                                   class="text-[24px] font-bold">{{- link.title -}}</a>
+                                            </li>
+                                        {%- endfor -%}
+                                    </ul>
+                            </div>
+                        </div>
                     </div>
+                {%- endif -%}
+            </div>
+
+            {%- if text != blank -%}
+                <div class="header-text text-[18px] text-black max-w-[329px] ml-auto py-[60px] lg:py-[120px] duration-200 transition-all ease-linear">
+                    {{- text -}}
                 </div>
-            </div>
-            <div class="header-text text-[18px] text-black max-w-[329px] ml-auto py-[60px] lg:py-[120px] duration-200 transition-all ease-linear">
-                {{- section.settings.text -}}
-            </div>
+            {%- endif -%}
         </div>
     </div>
 </header>
 
 {% schema %}
-  {
-    "name": "Header",
-    "settings": [
-      {
-        "type": "link_list",
-        "id": "menu",
-        "label": "Choose menu"
-      },
-      {
-        "type": "html",
-        "id": "logo",
-        "label": "Logo"
-      },
-      {
-        "type": "richtext",
-        "id": "text",
-        "label": "Header text"
-      }
-    ]
-  }
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Choose menu"
+    },
+    {
+      "type": "html",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Header text"
+    }
+  ]
+}
 {% endschema %}

@@ -2,9 +2,12 @@
 
 <section class="products mb-[80px]">
   <div class="container">
-    {% if section_title != blank %}
+
+    {%- if section_title != blank -%}
       <h1 class="content-section__title text-center lg:text-[80px] text-[40px] mb-[80px] mt-[60px]">{{ section_title }}</h1>
-    {% endif %}
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
       <div class="relative lg:px-[50px] px-0">
         <span class="md:hidden block absolute top-0 left-0 h-full w-[50px] z-10 rotate-180" style="background: linear-gradient(270deg, #F4EDE5 0%, rgba(244, 237, 229, 0) 100%);"></span>
         <div class="swiper-button-prev product-slider-arrow_prev after:content-[''] w-[31px] absolute top-[50%] translate-y-[-50%] left-0">
@@ -12,14 +15,16 @@
         </div>
         <div class="products-slider swiper">
           <div class="swiper-wrapper">
-            {% for block in section.blocks %}
-              {% assign id = block.settings.product.variants[0].id %}
-              {% assign title = block.settings.product.title %}
-              {% assign price = block.settings.product.price | money %}
-              {% assign image = block.settings.product.featured_image %}
+            {%- for block in section.blocks -%}
+              {%- assign product = block.settings.product -%}
+
+              {%- assign id = product.variants[0].id -%}
+              {%- assign title = product.title -%}
+              {%- assign price = product.price | money -%}
+              {%- assign image = product.featured_image -%}
 
               {% include 'product-card' id title price image %}
-            {% endfor %}
+            {%- endfor -%}
           </div>
           <div class="products-shop-all_link text-center pt-[47px] uppercase">
             <a href="#" class="underline underline-offset-4 text-black font-medium">Shop all</a>
@@ -30,6 +35,7 @@
           {% render 'icon-arrow-right' %}
         </div>
       </div>
+    {%- endif -%}
     </div>
 </section>
 
