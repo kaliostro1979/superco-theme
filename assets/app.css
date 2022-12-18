@@ -996,6 +996,10 @@ svg {
   background-color: #F4EDE5;
 }
 
+.header-logo svg path {
+  fill: #E3FF21;
+}
+
 .header-inner.scrolled .header-nav__wrapper {
   flex-direction: row;
   align-items: center;

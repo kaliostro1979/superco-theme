@@ -8,6 +8,14 @@
   }
 }
 
+.header-logo {
+  svg {
+    path {
+      fill: $brand-yellow;
+    }
+  }
+}
+
 .header-inner {
 
   &.scrolled {
