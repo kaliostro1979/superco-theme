@@ -1,33 +1,24 @@
-{%- if grid_size == "4" -%}
-    <div style="background-color: {{ color }}" class="p-[10px] swiper-slide md:max-w-[100%] max-w-[264px]">
-        <div class="relative pt-[224px] w-full">
-            <picture>
-                <source srcset="{{ image | img_url: '767x' }} 1x, {{ image | img_url: '1534x' }} 2x" media="(max-width: 767px)">
-                <source srcset="{{ image | img_url: '991x' }} 1x, {{ image | img_url: '1982x' }} 2x" media="(max-width: 991px)">
-                <source srcset="{{ image | img_url: '1199x' }} 1x, {{ image | img_url: '2398x' }} 2x" media="(max-width: 1199px)">
-                <source srcset="{{ image | img_url: '1440x' }} 1x, {{ image | img_url: '2880x' }} 2x" media="(max-width: 1440px)">
-                <source srcset="{{ image | img_url: '1920x' }} 1x, {{ image | img_url: '3840x' }} 2x" media="(max-width: 1920px)">
+<div style="background-color: {{ color }}" class="p-[10px] swiper-slide md:max-w-[100%] max-w-[264px]">
+    <div class="relative pt-[224px] w-full">
+        <picture>
+            <source srcset="{{ image | img_url: '767x' }} 1x, {{ image | img_url: '1534x' }} 2x" media="(max-width: 767px)">
+            <source srcset="{{ image | img_url: '991x' }} 1x, {{ image | img_url: '1982x' }} 2x" media="(max-width: 991px)">
+            <source srcset="{{ image | img_url: '1199x' }} 1x, {{ image | img_url: '2398x' }} 2x" media="(max-width: 1199px)">
+            <source srcset="{{ image | img_url: '1440x' }} 1x, {{ image | img_url: '2880x' }} 2x" media="(max-width: 1440px)">
+            <source srcset="{{ image | img_url: '1920x' }} 1x, {{ image | img_url: '3840x' }} 2x" media="(max-width: 1920px)">
 
-                <img
-                        srcset="{{ image | img_url: '1920x' }} 1x, {{ image | img_url: '3840x' }} 2x"
-                        src="{{ image | img_url: '1920x' }}"
-                        class="absolute top-0 left-0 object-cover object-center w-full h-full"
-                        alt="{{ image.alt | default: title }}"
-                >
-            </picture>
+            <img
+                    srcset="{{ image | img_url: '1920x' }} 1x, {{ image | img_url: '3840x' }} 2x"
+                    src="{{ image | img_url: '1920x' }}"
+                    class="absolute top-0 left-0 object-cover object-center w-full h-full"
+                    alt="{{ image.alt | default: title }}"
+            >
+        </picture>
 
-        </div>
-        <div class="pt-[30px] pb-[51px] text-center">
-            <p class="content-card__title text-[32px] text-black">{{- title -}}</p>
-            <p class="content-card__text text-black text-[18px] my-[15px]">{{- text | strip_html -}}</p>
-            <a href="{{- url -}}" class="content-card__link uppercase underline underline-offset-4">{{- link -}}</a>
-        </div>
     </div>
-{%- else -%}
-    <div class="md:min-h-[800px] min-h-[420px] bg-cover bg-no-repeat bg-center relative" style="background-image: url('{{ image | image_url }}')">
-        <div class="absolute bottom-0 left-[50%] translate-x-[-50%] text-center px-[25px] pb-[30px] xl:w-[614px] w-full">
-            <p class="content-card__title w-full lg:text-[64px] text-[32px] text-white">{{- title -}}</p>
-            <a href="{{- url -}}" class="content-card__link w-full text-white lg:text-[16px] text-[12px] uppercase underline underline-offset-4">{{- link -}}</a>
-        </div>
+    <div class="pt-[30px] pb-[51px] text-center">
+        <p class="content-card__title text-[32px] text-black">{{- title -}}</p>
+        <p class="content-card__text text-black text-[18px] my-[15px]">{{- text | strip_html -}}</p>
+        <a href="{{- url -}}" class="content-card__link uppercase underline underline-offset-4">{{- link -}}</a>
     </div>
-{%- endif -%}
+</div>

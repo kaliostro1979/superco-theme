@@ -1,0 +1,64 @@
+{%- assign section_title = section.settings.title -%}
+
+<div class="mb-[77px]">
+    <div class="container">
+        <div>
+            <div class="content-wrapper">
+                <div class="grid lg:grid-cols-2 grid grid-cols-1 lg:gap-[10px] gap-[20px]">
+
+                    {%- for block in section.blocks -%}
+                        {%- assign image = block.settings.image -%}
+                        {%- assign title = block.settings.title -%}
+                        {%- assign url = block.settings.url -%}
+                        {%- assign link = block.settings.link -%}
+
+                        {%- include 'static-content-card', image title link url -%}
+                    {%- endfor -%}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Static content cards",
+  "max_blocks": 4,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "card",
+      "name":"Content card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        }
+      ]
+    }
+  ],
+  "presets":[
+    {
+      "name": "Static content cards"
+    }
+  ]
+}
+{% endschema %}

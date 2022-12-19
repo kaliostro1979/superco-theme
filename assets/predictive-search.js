@@ -10,6 +10,7 @@ class PredictiveSearch extends SearchForm {
     this.searchTerm = '';
 
     this.setupEventListeners();
+
   }
 
   setupEventListeners() {
